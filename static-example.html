@@ -10,16 +10,16 @@
       client_id: 'iTAbnWQtk4voRjZyOp0ZHYL24s101ppB',
       cacheLocation: 'localstorage'
     });
-
-    $('#login').on('click', () => {
-      await auth0.loginWithRedirect({
-        redirect_uri: 'https://schamblee-auth0.github.io/static-example.html'
-      });
-      //logged in. you can get the user profile like this:
-      const user = await auth0.getUser();
-      console.log(user);
-    });
   }
   init();
+
+  $('#login').on('click', async () => {
+    await auth0.loginWithRedirect({
+      redirect_uri: 'https://schamblee-auth0.github.io/static-example.html'
+    });
+    //logged in. you can get the user profile like this:
+    const user = await auth0.getUser();
+    console.log(user);
+  });
 
 </script>
