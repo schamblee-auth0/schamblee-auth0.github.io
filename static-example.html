@@ -6,8 +6,7 @@
 <script>
   createAuth0Client({
     domain: 'example-connections.us.auth0.com',
-    client_id: 'iTAbnWQtk4voRjZyOp0ZHYL24s101ppB',
-    cacheLocation: 'localstorage'
+    client_id: 'iTAbnWQtk4voRjZyOp0ZHYL24s101ppB'
   }).then((auth0) => {
     $('#login').on('click', () => {
       auth0.loginWithRedirect({
