@@ -4,20 +4,21 @@
 <button id="login">Click to Login</button>
 
 <script>
-const auth0 = new Auth0Client({
+  
+createAuth0Client({
   domain: 'example-connections.us.auth0.com',
   client_id: 'iTAbnWQtk4voRjZyOp0ZHYL24s101ppB'
-});
-
-
-$('#login').on('click', () => {
-  auth0.loginWithRedirect({
-    redirect_uri: 'https://schamblee-auth0.github.io/static-example.html'
-  }).then(token => {
-    //logged in. you can get the user profile like this:
-    auth0.getUser().then(user => {
-      console.log(user);
+}).then(auth0 => {
+  $('#login').on('click', () => {
+    auth0.loginWithRedirect({
+      redirect_uri: 'https://schamblee-auth0.github.io/static-example.html'
+    }).then(token => {
+      //logged in. you can get the user profile like this:
+      auth0.getUser().then(user => {
+        console.log(user);
+      });
     });
   });
 });
+
 </script>
