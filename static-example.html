@@ -5,20 +5,19 @@
 
 <script>
   
-createAuth0Client({
-  domain: 'example-connections.us.auth0.com',
-  client_id: 'iTAbnWQtk4voRjZyOp0ZHYL24s101ppB',
-  cacheLocation: 'localstorage'
-}).then(auth0 => {
+  const auth0 = await createAuth0Client({
+    domain: 'example-connections.us.auth0.com',
+    client_id: 'iTAbnWQtk4voRjZyOp0ZHYL24s101ppB',
+    cacheLocation: 'localstorage'
+  });
+
   $('#login').on('click', () => {
-    auth0.loginWithRedirect({
+    await auth0.loginWithRedirect({
       redirect_uri: 'https://schamblee-auth0.github.io/static-example.html'
-    }).then(token => {
-      //logged in. you can get the user profile like this:
-      auth0.getUser().then(user => {
-        console.log(user);
-      });
     });
+    //logged in. you can get the user profile like this:
+    const user = await auth0.getUser();
+    console.log(user);
   });
 });
 
