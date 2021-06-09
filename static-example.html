@@ -12,7 +12,7 @@ const auth0 = new Auth0Client({
 
 $('#login').on('click', () => {
   auth0.loginWithRedirect({
-    redirect_uri: 'file:///Users/stephaniechamblee/Desktop/static-example.html'
+    redirect_uri: 'https://schamblee-auth0.github.io/static-example.html'
   }).then(token => {
     //logged in. you can get the user profile like this:
     auth0.getUser().then(user => {
