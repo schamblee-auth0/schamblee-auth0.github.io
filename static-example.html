@@ -1,0 +1,23 @@
+<script src="https://cdn.auth0.com/js/auth0-spa-js/1.12/auth0-spa-js.production.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<button id="login">Click to Login</button>
+
+<script>
+const auth0 = new Auth0Client({
+  domain: 'example-connections.us.auth0.com',
+  client_id: 'iTAbnWQtk4voRjZyOp0ZHYL24s101ppB'
+});
+
+
+$('#login').on('click', () => {
+  auth0.loginWithRedirect({
+    redirect_uri: 'file:///Users/stephaniechamblee/Desktop/static-example.html'
+  }).then(token => {
+    //logged in. you can get the user profile like this:
+    auth0.getUser().then(user => {
+      console.log(user);
+    });
+  });
+});
+</script>
